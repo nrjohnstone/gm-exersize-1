@@ -6,11 +6,13 @@ The player object should also not be able to move any part of the sprite offscre
 ## Create the player sprite
 
 * Create a sprite "spr_player" in Game Maker and Use the "player_plane.png" sprite from the resources folder
+* The sprite is a sprite map so you will need to use the "Create from strip" menu item in Game Maker
+  * The sheet is 183 pixels by 53 pixels and has a single row of 3 images. That means to find the width of each image you should divide 183 by 3.
 
 ![GitHub Logo](/resources/player_plane.png)
 
 * Make sure the origin is set to 0,0
-* Make sure the background color of white is set to transparent
+* Make sure the background color of white is set to transparent by using the menu option "Erase a color" in the sprite editor menu
 
 ## Create the player object
 
@@ -24,15 +26,39 @@ The player object should also not be able to move any part of the sprite offscre
 
 ## Create the player initialize script
 
+* Create a blank script for the "Create" event
+* Initialize a new variable `plane_speed` to a value of 10
+* Set the `x` variable to the middle of the room and the y variable so that the plane is in the bottom third of the screen
+  * Hint: Use `screen_width` and `screen_height` to set `x` and `y`
+
+## Create the player movement script
+
 * Create a blank script for the "Step" event
 * Add code to make the player respond to the left arrow key
   * You will need to use the `keyboard_check()` function to always move while the key is held down
+  * You will need to use the constants `vk_up`, `vk_down`, `vk_left` and `vk_right` with `keyboard_check()`
+
+*example of checking for down key pressed*
+
+`if keyboard_check(vk_down)`
+
+  * Increase or decrease the `x` and `y` variables by the `plane_speed` variable when moving
+
+*example of increasing x by plane speed*
+
+`x = x + plane_speed`  
+
 * Add code to make the player respond to the right arrow key
 * Add code to make the player respond to the up arrow key
 * Add code to make the player respond to the down arrow key
 * Add code to stop the player from moving off the screen in any direction
   * You will need to use the following variables for the checks
     * `room_width`, `room_height`, `sprite_width` and `sprite_height`
+    * Remember when checking to see if moving off the screen you need to account for the origin of the sprite which was set to 0,0
+
+*example of checking if player has gone off the right edge of the room*
+
+`if (x + sprite_width > room_width)`
 
 
 
