@@ -6,6 +6,9 @@ The player object should also not be able to move any part of the sprite offscre
 ## Create the player sprite
 
 * Create a sprite "spr_player" in Game Maker and Use the "player_plane.png" sprite from the resources folder
+
+![GitHub Logo](/resources/player_plane.png)
+
 * Make sure the origin is set to 0,0
 * Make sure the background color of white is set to transparent
 
