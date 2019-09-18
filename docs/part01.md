@@ -24,17 +24,18 @@ The player object should also not be able to move any part of the sprite offscre
 * Set the speed of the room to 60
 * Add the player object to the middle of the room near the bottom
 
-## Create the player initialize script
+## Create the player initialize script for the player object
 
-* Create a blank script for the "Create" event
+* For the "obj_player" object, create a blank script for the "Create" event
 * Initialize a new variable `plane_speed` to a value of 10
 * Set the `x` variable to the middle of the room and the y variable so that the plane is in the bottom third of the screen
   * Hint: Use `screen_width` and `screen_height` to set `x` and `y`
+  * Hint: Don't forget to include a modification for the offset of the sprite (set to 0,0) and the `sprite_width`
 
-## Create the player movement script
+## Create the player movement script for the player object
 
 * Create a blank script for the "Step" event
-* Add code to make the player respond to the left arrow key
+* Add code to make the player respond to the each of the arrow keys (left, right, up and down)
   * You will need to use the `keyboard_check()` function to always move while the key is held down
   * You will need to use the constants `vk_up`, `vk_down`, `vk_left` and `vk_right` with `keyboard_check()`
 
@@ -42,23 +43,30 @@ The player object should also not be able to move any part of the sprite offscre
 
 `if keyboard_check(vk_down)`
 
-  * Increase or decrease the `x` and `y` variables by the `plane_speed` variable when moving
+  * Depending on the direction you will need to increase or decrease the `x` and `y` variables by the `plane_speed` variable when a key is down
 
-*example of increasing x by plane speed*
+*example of adding the plane speed to the variable x*
 
 `x = x + plane_speed`  
 
 * Add code to make the player respond to the right arrow key
 * Add code to make the player respond to the up arrow key
 * Add code to make the player respond to the down arrow key
-* Add code to stop the player from moving off the screen in any direction
+
+The next part is to stop the player from moving off the screen in any direction
   * You will need to use the following variables for the checks
     * `room_width`, `room_height`, `sprite_width` and `sprite_height`
-    * Remember when checking to see if moving off the screen you need to account for the origin of the sprite which was set to 0,0
+    * Remember when checking to see if moving off the screen in certain directions you need to use the `sprite_width` and `sprite_height` because the origin of the sprite is set to 0,0
+    * You will also need to include those variables when setting the `x` or `y` positions to keep the player sprite on screen
 
 *example of checking if player has gone off the right edge of the room*
 
-`if (x + sprite_width > room_width)`
+```
+if (x + sprite_width > room_width)
+{
+  x = room_width - sprite_width
+}
+````  
 
 
 
