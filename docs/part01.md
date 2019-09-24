@@ -1,6 +1,7 @@
-# Goal
+# Make a moving player object
 
 To have a test room with a player object that can move around the screen when up/down/left/right keys are pressed.
+
 The player object should also not be able to move any part of the sprite offscreen.
 
 ## Create the player sprite
@@ -39,19 +40,18 @@ The player object should also not be able to move any part of the sprite offscre
   * You will need to use the `keyboard_check()` function to always move while the key is held down
   * You will need to use the constants `vk_up`, `vk_down`, `vk_left` and `vk_right` with `keyboard_check()`
 
-*example of checking for down key pressed*
-
-`if keyboard_check(vk_down)`
-
   * Depending on the direction you will need to increase or decrease the `x` and `y` variables by the `plane_speed` variable when a key is down
 
-*example of adding the plane speed to the variable x*
+*example of checking for down key pressed and adjusting the y position*
 
-`x = x + plane_speed`  
+```
+if keyboard_check(vk_down)
+{
+  y = y + plane_speed
+}
+```
 
-* Add code to make the player respond to the right arrow key
-* Add code to make the player respond to the up arrow key
-* Add code to make the player respond to the down arrow key
+## Stop player from moving off the screen
 
 The next part is to stop the player from moving off the screen in any direction
   * You will need to use the following variables for the checks
@@ -62,11 +62,11 @@ The next part is to stop the player from moving off the screen in any direction
 *example of checking if player has gone off the right edge of the room*
 
 ```
-if (x + sprite_width > room_width)
+if (x > room_width - sprite_width)
 {
   x = room_width - sprite_width
 }
-````  
+```
 
 
 
