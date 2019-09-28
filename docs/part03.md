@@ -6,7 +6,7 @@ The goal is to end up with the player able to shoot bullets when the space key i
 
 * Create a sprite called "spr_player_bullet" in Game Maker and load the sprite "player_bullet.png" from the resources folder
 
-![GitHub Logo](/resources/player_bullet.png)
+![](/resources/player_bullet.png)
 
 * Make sure the origin is set to 0,0
 
@@ -39,3 +39,9 @@ Even when an instance is offscreen it is still taking up memory and cpu, so unle
 * Check if the y position of the bullet has moved offscreen, and if it has then destroy the instance
   * HINT: Use `destroy_instance()` in a script to have an instance destroy itself
 
+```
+if (y < 0)
+{
+    destroy_instance()
+}
+```

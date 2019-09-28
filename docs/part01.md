@@ -10,7 +10,7 @@ The player object should also not be able to move any part of the sprite offscre
 * The sprite is a sprite map so you will need to use the "Create from strip" menu item in Game Maker
   * The sheet is 183 pixels by 53 pixels and has a single row of 3 images. That means to find the width of each image you should divide 183 by 3.
 
-![GitHub Logo](/resources/player_plane.png)
+![](/resources/player_plane.png)
 
 * Make sure the origin is set to 0,0
 * Make sure the background color of white is set to transparent by using the menu option "Erase a color" in the sprite editor menu
