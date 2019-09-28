@@ -37,11 +37,11 @@ Even when an instance is offscreen it is still taking up memory and cpu, so unle
 
 * In the object for the player bullet "obj_player_bullet" add a new script for the Step event
 * Check if the y position of the bullet has moved offscreen, and if it has then destroy the instance
-  * HINT: Use `destroy_instance()` in a script to have an instance destroy itself
+  * HINT: Use `instance_destroy()` in a script to have an instance destroy itself
 
 ```
 if (y < 0)
 {
-    destroy_instance()
+    instance_destroy()
 }
 ```
